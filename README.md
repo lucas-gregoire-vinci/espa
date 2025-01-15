@@ -9,6 +9,10 @@ type NewBook = Omit<Book, "id">;
 
 export type { Book, NewBook };
 
+
+
+
+
 2. Service pour les livres : books.ts
 
 Créez un fichier books.ts dans le dossier services. Ce fichier contient les fonctions pour gérer les livres :
@@ -60,6 +64,11 @@ function deleteBook(id: number): boolean {
 
 export { readAllBooks, readBookById, createBook, deleteBook };
 
+
+
+
+
+
 3. Routes pour les livres : books.ts
 
 Ajoutez un fichier books.ts dans le dossier routes. Ce fichier gère les endpoints liés aux livres.
@@ -110,6 +119,13 @@ router.delete("/:id", (req: AuthenticatedRequest, res) => {
 
 export default router;
 
+
+
+
+
+
+
+
 4. Mise à jour du serveur principal : server.ts
 
 Ajoutez les nouvelles routes dans votre serveur principal.
@@ -142,7 +158,19 @@ app.listen(PORT, () => {
 
 
 
+
+
+
+
+
+
 FRONT 
+
+
+
+
+
+
 
 
 
@@ -180,6 +208,12 @@ const Header: React.FC<HeaderProps> = ({ isAuthenticated, onLogout }) => {
 };
 
 export default Header;
+
+
+
+
+
+
 
 components/LoginForm.tsx
 
@@ -231,6 +265,12 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
 
 export default LoginForm;
 
+
+
+
+
+
+
 components/BookList.tsx
 
 Affichage de la liste des livres :
@@ -266,6 +306,12 @@ const BookList: React.FC = () => {
 };
 
 export default BookList;
+
+
+
+
+
+
 
 components/BookDetails.tsx
 
@@ -303,6 +349,12 @@ const BookDetails: React.FC = () => {
 
 export default BookDetails;
 
+
+
+
+
+
+
 services/auth.ts
 
 Service pour gérer l'authentification :
@@ -324,6 +376,12 @@ export const login = async (username: string, password: string): Promise<string>
 
 services/books.ts
 
+
+
+
+
+
+
 Service pour gérer les livres :
 
 import { Book } from "../types";
@@ -343,6 +401,13 @@ export const fetchBookById = async (id: number): Promise<Book> => {
   }
   return await response.json();
 };
+
+
+
+
+
+
+
 
 App.tsx
 
